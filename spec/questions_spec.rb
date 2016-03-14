@@ -133,5 +133,75 @@ describe 'ruby kata' do
     expect(n).to eq(6)
   end
 
+  it 'removes capital letters from words' do
+    n = remove_capital_letters_from_string('Hello JohnDoe')
+    expect(n).to eq('ello ohnoe')
+  end
+
+  it 'rounds up a float' do
+    n = round_up_number(3.1444)
+    expect(n).to eq(4)
+  end
+
+  it ' rounds the number down' do
+    n = round_down_number(4.99)
+    expect(n).to eq(4)
+  end
+
+  it 'formats to a date style' do
+    n = format_date_nicely Time.new(2013, 10, 31)
+    expect(n).to eq('31/10/2013')
+  end
+
+  it 'gets domain name only from email' do
+    n = get_domain_name_from_email_address('alex@makersacademy.com')
+    expect(n).to eq('makersacademy')
+  end
+
+  it 'capitalises the first letter in each word' do
+    n = titleize_a_string('the lion the witch and the wardrobe')
+    expect(n).to eq('The Lion the Witch and the Wardrobe')
+  end
+
+  it 'returns true if string contains specail character' do
+    n = check_a_string_for_special_characters('ABCdef123')
+    b = check_a_string_for_special_characters('ABC@def123!')
+    expect(n).to eq(false)
+    expect(b).to eq(true)
+  end
+
+  it 'should return the upper limit of range' do
+    n = get_upper_limit_of(1..20)
+    b = get_upper_limit_of(1..55)
+    expect(n).to eq(20)
+    expect(b).to eq(55)
+  end
+
+  it 'should return true for 3 dot range else false' do
+    n = is_a_3_dot_range?(1...20)
+    b = is_a_3_dot_range?(1..20)
+    expect(n).to eq(true)
+    expect(b).to eq(false)
+  end
+
+  it 'returns the square root of a number' do
+    n = square_root_of(9)
+    b = square_root_of(3)
+    expect(n).to eq 3.0
+    expect(b).to eq 1.7320508075688772
+  end
+
+  it 'call_method_from_string' do
+    expect {call_method_from_string('foobar')}.to raise_error(NameError)
+  end
+
+  it 'is_a_2014_bank_holiday?' do
+  a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
+  b = is_a_2014_bank_holiday?(Time.new(2014, 8, 26))
+  expect(a).to be true
+  expect(b).to be false
+end
+
+
 
 end

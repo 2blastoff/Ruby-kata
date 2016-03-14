@@ -94,3 +94,62 @@ end
 def add_together_keys_and_values(hash)
   hash.inject(&:+).inject(&:+)
 end
+
+def remove_capital_letters_from_string(string)
+  string.gsub!(/[A-Z]/,'')
+end
+
+def round_up_number(float)
+  float.ceil
+end
+
+def round_down_number(float)
+  float.floor
+end
+
+def format_date_nicely(date)
+  t = date
+  t.strftime("%d/%m/%Y")
+end
+
+def get_domain_name_from_email_address(email)
+  (email.split('@')[1])[0..-5]
+end
+
+def titleize_a_string(string)
+  words_to_ignore = ["the","and","a"]
+  new_string = string.split(' ').map do |x|
+    unless words_to_ignore.include? x
+      x.capitalize
+    else
+      x
+    end
+  end
+  new_string[0].capitalize!
+  new_string.join(" ")
+end
+
+def check_a_string_for_special_characters(string)
+  string.include?('@'||'?')
+end
+
+def get_upper_limit_of(range)
+  range.last
+end
+
+def is_a_3_dot_range?(range)
+  range.exclude_end?
+end
+
+def square_root_of(number)
+  Math.sqrt(number)
+end
+
+def call_method_from_string(str_method)
+  str_method.call
+end
+
+def is_a_2014_bank_holiday?(date)
+  bank_hols = ["25/08", "25/12", "26/12", "26/05", "05/05", "21/04", "18/04", "01/01"]
+  bank_hols.include?(date.strftime("%d/%m"))
+end
